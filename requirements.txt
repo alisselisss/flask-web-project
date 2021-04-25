@@ -19,7 +19,6 @@ Jinja2==2.11.3
 Mako==1.1.4
 MarkupSafe==1.1.1
 pycparser==2.20
-pyodbc==4.0.30
 python-dateutil==2.8.1
 python-editor==1.0.4
 requests==2.25.1
