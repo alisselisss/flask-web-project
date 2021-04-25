@@ -1,4 +1,4 @@
-alembic==1.5.8https://github.com/alisselisss/-finished-web-project/blob/main/requirements.txt
+alembic==1.5.8
 blinker==1.4
 certifi==2020.12.5
 cffi==1.14.5
