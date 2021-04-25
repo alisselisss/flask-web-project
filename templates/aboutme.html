@@ -1,0 +1,22 @@
+{% extends "base_login.html" %}
+
+{% block content %}
+<br>
+<h1 align="center"><font face="fantasy">Сreate an account</font></h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.about.label }}<br>
+        {{ form.about(class="form-control") }}<br>
+        {% for error in form.about.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <div class="move"><br>
+    <p><a class="btn btn-secondary" href="/upload_photo">Back</a>
+        {{ form.further(type="submit", class="btn btn-secondary") }}</p></div>
+    {{ message }}
+</form>
+{% endblock %}

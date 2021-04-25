@@ -1,0 +1,54 @@
+{% extends "base_login.html" %}
+
+{% block content %}
+<br>
+<h1 align="center"><font face="fantasy">Сreate an account</font></h1><br>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.email.label }}<br>
+        {{ form.email(class="form-control", type="email") }}<br>
+        {% for error in form.email.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.username.label }}<br>
+        {{ form.username(class="form-control") }}<br>
+        {% for error in form.username.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        <select name="month" width="300px">
+        {% for o in form.list_of_months %}
+            <option class='opt' value="{{ o }}">{{ o }}</option>
+        {% endfor %}
+        </select>
+        <select name="day" width="300px">
+        {% for o in form.list_of_days %}
+            <option class='opt' value="{{ o }}">{{ o }}</option>
+        {% endfor %}
+        </select>
+        <select name="year" width="300px">
+        {% for o in form.list_of_years %}
+            <option class='opt' value="{{ o }}">{{ o }}</option>
+        {% endfor %}
+        </select>
+        <select name="country" width="300px">
+        {% for o in form.list_of_countries %}
+            <option class='opt' value="{{ o }}">{{ o }}</option>
+        {% endfor %}
+        </select>
+    </p>
+    <div class="move"><br>
+    <p><a class="btn btn-secondary" href="/">Back</a>
+        {{ form.further(type="submit", class="btn btn-secondary") }}</p>
+        {{message}}
+    </div>
+</form>
+{% endblock %}

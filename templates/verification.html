@@ -1,0 +1,32 @@
+{% extends "base_login.html" %}
+
+{% block content %}
+<style>
+    .move {
+    text-align: center;
+    }
+
+</style>
+<br>
+<h1 align="center"><font face="fantasy">Verification</font></h1>
+{{ mess }}
+<form action="" method="post">
+
+    {{ form.hidden_tag() }}
+    <p>Check your e-mails! We sent verification code!</p>
+    <p>
+        {{ form.verification.label }}<br>
+        {{ form.verification(class="form-control") }}<br>
+        {% for error in form.verification.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <p>Didn't receive our letter?<a href="/send_verification">Press here to resent.</a></p><br>
+    <div class="move">
+        <p><a class="btn btn-secondary" href="{{ back }}">Back</a>
+            {{ form.further(type="submit", class="btn btn-secondary") }}</p></div>
+    {{ message }}
+</form>
+{% endblock %}

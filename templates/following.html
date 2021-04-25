@@ -1,0 +1,24 @@
+{% extends "base_logged_in.html" %}
+
+{% block content %}
+<a href="/account/{{ user.username }}" class="settingsback"><img src="{{ url_for('static', filename='img/back.png') }}" width="33px"></a>
+<div class="following_list" style="margin: 50px;">
+    <p>
+        <h1>Subscriptions</h1>
+    </p>
+    {% if user.following.split(', ') |length != 1 %}
+        {% for id in user.following.split(', ') %}
+        {% set following_user = db_sess_query_user.filter(user_class.id == id).first() %}
+            {% if following_user %}
+                <div class="itsme">
+                    <img src="{{ url_for('static', filename='img/' + following_user.photo) }}" class="round">
+                    <a href="/account/{{ following_user.username }}">{{ following_user.username }}</a>
+                    <p>{{ following_user.about_me}}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <p>no subscriptions</p>
+    {% endif %}
+</div>
+{% endblock %}

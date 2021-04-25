@@ -1,0 +1,21 @@
+{% extends "base_login.html" %}
+
+{% block content %}
+<h1 align="center"><font face="fantasy">Password recovery</font></h1><br>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.login.label }}<br>
+        {{ form.login(class="form-control") }}<br>
+        {% for error in form.login.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <div class="move"><br>
+    <p><a class="btn btn-secondary" href="/login">Back</a>
+        {{ form.search(type="submit", class="btn btn-primary") }}</p></div>
+    {{ message }}
+</form>
+{% endblock %}
